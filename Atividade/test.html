@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Informações</title>
+    <style>
+        #info {
+            display: none; /* Oculta as informações inicialmente */
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Formulário de Informações</h1>
+    
+    <form id="infoForm">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" required>
+        <br><br>
+        
+        <label for="dataNascimento">Data de Nascimento:</label>
+        <input type="date" id="dataNascimento" required>
+        <br><br>
+        
+        <button type="submit">Enviar</button>
+    </form>
+    
+    <div id="info">
+        <h2>Informações Enviadas</h2>
+        <p id="infoNome"></p>
+        <p id="infoDataNascimento"></p>
+    </div>
+
+    <script>
+        const form = document.getElementById('infoForm');
+        const infoDiv = document.getElementById('info');
+        const infoNome = document.getElementById('infoNome');
+        const infoDataNascimento = document.getElementById('infoDataNascimento');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault(); // Impede o envio do formulário
+
+            // Obtém os valores dos campos
+            const nome = document.getElementById('nome').value;
+            const dataNascimento = document.getElementById('dataNascimento').value;
+
+            // Exibe as informações
+            infoNome.textContent = `Nome: ${nome}`;
+            infoDataNascimento.textContent = `Data de Nascimento: ${dataNascimento}`;
+            infoDiv.style.display = 'block'; // Mostra a div de informações
+        });
+    </script>
+
+</body>
+</html>
